@@ -1,21 +1,17 @@
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 
-export default [
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
+export default defineConfig([
   {
-    languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: 'module',
-      globals: globals.serviceworker,
-    },
-    rules: {
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    },
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.browser },
   },
+  tseslint.configs.recommended,
   {
     ignores: ['dist', 'node_modules', '.wrangler'],
   },
-];
+]);

@@ -1,21 +1,23 @@
 ```txt
-npm install
-npm run dev
+pnpm i
+pnpm run dev
 ```
 
 ```txt
-npm run deploy
+pnpm deploy
 ```
 
 [For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
 
 ```txt
-npm run cf-typegen
+pnpm cf-typegen
 ```
 
 Pass the `CloudflareBindings` as generics when instantiating `Hono`:
 
 ```ts
 // src/index.ts
-const app = new Hono<{ Bindings: CloudflareBindings }>()
+import { type Bindings } from './types';
+
+const app = new Hono<{ Bindings: Bindings }>();
 ```
