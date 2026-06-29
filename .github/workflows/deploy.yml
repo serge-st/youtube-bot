@@ -14,7 +14,11 @@ jobs:
       - uses: pnpm/action-setup@v6
         with:
           version: 10
+      - name: Install dependencies
+        run: pnpm install
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          packageManager: pnpm
+          node-version: 24
