@@ -14,6 +14,9 @@ jobs:
       - uses: pnpm/action-setup@v6
         with:
           version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
       - name: Install dependencies
         run: pnpm install
       - name: Deploy
@@ -21,4 +24,3 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           packageManager: pnpm
-          node-version: 24
