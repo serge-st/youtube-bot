@@ -1,24 +1,29 @@
 {
   "name": "youtube-bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "tsc -w",
-    "run": "nodemon dist/index.js",
-    "start:dev": "concurrently \"pnpm:build\" \"pnpm:run\""
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "format": "prettier --check \"src/**/*.{ts,tsx,js,json}\"",
+    "format:fix": "prettier --write \"src/**/*.{ts,tsx,js,json}\"",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "googleapis": "^133.0.0"
+    "hono": "^4.12.27"
   },
   "devDependencies": {
-    "@types/node": "^20.11.25",
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0",
-    "typescript": "^5.4.2"
+    "@cloudflare/vitest-pool-workers": "^0.16.20",
+    "@cloudflare/workers-types": "^4.20260629.1",
+    "@eslint/js": "^10.0.1",
+    "@total-typescript/tsconfig": "^1.0.4",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "prettier": "^3.9.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1",
+    "vitest": "^4.1.9",
+    "wrangler": "^4.4.0"
   }
 }
