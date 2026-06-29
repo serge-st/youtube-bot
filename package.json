@@ -9,6 +9,7 @@
     "format:fix": "prettier --write \"src/**/*.{ts,tsx,js,json}\"",
     "lint": "eslint --flag unstable_native_nodejs_ts_config src",
     "lint:fix": "eslint --flag unstable_native_nodejs_ts_config src --fix",
+    "fallow": "fallow audit",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
@@ -21,6 +22,7 @@
     "@eslint/js": "^10.0.1",
     "@total-typescript/tsconfig": "^1.0.4",
     "eslint": "^10.6.0",
+    "fallow": "^2.103.0",
     "globals": "^17.7.0",
     "prettier": "^3.9.3",
     "typescript": "^6.0.3",
